@@ -67,9 +67,10 @@ class HuggingFace(ModelProvider):
             model_id=model_name,
             task="text-generation",
             pipeline_kwargs=model_kwargs,
-            device=None,
-            device_map=None,
-            model_kwargs=dict(device_map='auto'),
+            device=0,  # mamba can't use 'auto'
+            # device=None,
+            # device_map=None,
+            # model_kwargs=dict(device_map='auto'),
         )
         self.tokenizer = AutoTokenizer.from_pretrained(self.model_name)
     
