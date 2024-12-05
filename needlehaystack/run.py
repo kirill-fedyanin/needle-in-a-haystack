@@ -31,6 +31,7 @@ class CommandArgs():
     document_depth_percent_interval_type: Optional[str] = "linear"
     num_concurrent_requests: Optional[int] = 1
     save_results: Optional[bool] = True
+    results_dir: Optional[str] = "results"
     save_contexts: Optional[bool] = True
     final_context_length_buffer: Optional[int] = 200
     seconds_to_sleep_between_completions: Optional[float] = None
