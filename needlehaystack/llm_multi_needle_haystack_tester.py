@@ -269,11 +269,11 @@ class LLMMultiNeedleHaystackTester(LLMNeedleHaystackTester):
                 
             if self.save_results:
                 # Save the context to file for retesting
-                if not os.path.exists('results'):
-                    os.makedirs('results')
+                if not os.path.exists(self.results_dir):
+                    os.makedirs(self.results_dir)
 
                 # Save the result to file for retesting
-                with open(f'results/{context_file_location}_results.json', 'w') as f:
+                with open(f'{self.results_dir}/{context_file_location}_results.json', 'w') as f:
                     json.dump(results, f)
 
             if self.seconds_to_sleep_between_completions:
