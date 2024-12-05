@@ -35,6 +35,7 @@ class LLMNeedleHaystackTester:
                  document_depth_percent_interval_type = "linear",
                  num_concurrent_requests = 1,
                  save_results = True,
+                 results_dir = "results",
                  save_contexts = True,
                  final_context_length_buffer = 200,
                  seconds_to_sleep_between_completions = None,
@@ -74,6 +75,7 @@ class LLMNeedleHaystackTester:
         self.haystack_dir = haystack_dir
         self.retrieval_question = retrieval_question
         self.results_version = results_version
+        self.results_dir = results_dir
         self.num_concurrent_requests = num_concurrent_requests
         self.save_results = save_results
         self.final_context_length_buffer = final_context_length_buffer
@@ -198,11 +200,11 @@ class LLMNeedleHaystackTester:
             
         if self.save_results:
             # Save the context to file for retesting
-            if not os.path.exists('results'):
-                os.makedirs('results')
+            if not os.path.exists(self.results_dir):
+                os.makedirs(self.results_dir)
 
             # Save the result to file for retesting
-            with open(f'results/{context_file_location}_results.json', 'w') as f:
+            with open(f'{self.results_dir}/{context_file_location}_results.json', 'w') as f:
                 json.dump(results, f)
 
         if self.seconds_to_sleep_between_completions:
@@ -213,7 +215,7 @@ class LLMNeedleHaystackTester:
         Checks to see if a result has already been evaluated or not
         """
 
-        results_dir = 'results/'
+        results_dir = self.results_dir
         if not os.path.exists(results_dir):
             return False
         

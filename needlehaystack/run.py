@@ -31,6 +31,8 @@ class CommandArgs():
     document_depth_percent_interval_type: Optional[str] = "linear"
     num_concurrent_requests: Optional[int] = 1
     save_results: Optional[bool] = True
+    trust_remote_code: Optional[bool] = False
+    results_dir: Optional[str] = "results"
     save_contexts: Optional[bool] = True
     final_context_length_buffer: Optional[int] = 200
     seconds_to_sleep_between_completions: Optional[float] = None
@@ -65,7 +67,7 @@ def get_model_to_test(args: CommandArgs) -> ModelProvider:
         case "anthropic":
             return Anthropic(model_name=args.model_name)
         case "huggingface":
-            return HuggingFace(model_name=args.model_name)
+            return HuggingFace(model_name=args.model_name, trust_remote_code=args.trust_remote_code)
         case _:
             raise ValueError(f"Invalid provider: {args.provider}")
 
