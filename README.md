@@ -20,7 +20,7 @@ needlehaystack.run_test --provider huggingface \
 
 A simple 'needle in a haystack' analysis to test in-context retrieval ability of long context LLMs.
 
-Supported model providers: OpenAI, Anthropic
+Supported model providers: OpenAI, Anthropic, most opensource one from huggingface
 
 Get the behind the scenes on the [overview video](https://youtu.be/KwRRuiCCdmc).
 
