@@ -31,7 +31,7 @@ class CommandArgs():
     document_depth_percent_interval_type: Optional[str] = "linear"
     num_concurrent_requests: Optional[int] = 1
     save_results: Optional[bool] = True
-    trust_remote_code: Optional[bool] = True
+    trust_remote_code: Optional[bool] = False
     results_dir: Optional[str] = "results"
     save_contexts: Optional[bool] = True
     final_context_length_buffer: Optional[int] = 200
