@@ -38,7 +38,7 @@ class HuggingFace(ModelProvider):
         tokenizer: A tokenizer instance for encoding and decoding text to and from token representations.
     """
         
-    DEFAULT_MODEL_KWARGS: dict = dict(max_new_tokens  = 300, torch_dtype='bfloat16')
+    DEFAULT_MODEL_KWARGS: dict = dict(max_new_tokens=160, torch_dtype='bfloat16')
 
     def __init__(self,
                  model_name: str = "mistralai/Mistral-7B-Instruct-v0.2",
