@@ -3,7 +3,7 @@
 
 ### Description
 
-It's a fork of a repo from @gauss5930 and @gkamradt, that's work with more recent opensource models (transformers 4.45.2)
+It's a fork of a repo from @gauss5930 and @gkamradt, that's works with more recent opensource models (transformers 4.45.2)
 
 ```bash
 needlehaystack.run_test --provider huggingface \
