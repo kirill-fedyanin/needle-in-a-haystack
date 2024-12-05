@@ -38,8 +38,7 @@ class HuggingFace(ModelProvider):
         tokenizer: A tokenizer instance for encoding and decoding text to and from token representations.
     """
         
-    DEFAULT_MODEL_KWARGS: dict = dict(max_new_tokens  = 300,
-                                      temperature = 0)
+    DEFAULT_MODEL_KWARGS: dict = dict(max_new_tokens  = 300, torch_dtype='bfloat16')
 
     def __init__(self,
                  model_name: str = "mistralai/Mistral-7B-Instruct-v0.2",
@@ -66,9 +65,11 @@ class HuggingFace(ModelProvider):
         
         self.model = HuggingFacePipeline.from_model_id(
             model_id=model_name,
-            device=0,
             task="text-generation",
-            pipeline_kwargs=model_kwargs
+            pipeline_kwargs=model_kwargs,
+            device=None,
+            device_map=None,
+            model_kwargs=dict(device_map='auto'),
         )
         self.tokenizer = AutoTokenizer.from_pretrained(self.model_name)
     

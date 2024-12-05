@@ -1,5 +1,23 @@
 # Needle In A Haystack - Pressure Testing LLMs
 
+
+### Description
+
+It's a fork of a repo from @gauss5930 and @gkamradt, that's work with more recent opensource models (transformers 4.45.2)
+
+```bash
+needlehaystack.run_test --provider huggingface \
+  --model_name "Qwen/Qwen2.5-0.5B-Instruct" \
+  --context_lengths_min=4096 \ 
+  --context_lengths_max=32768 \ 
+  --context_lengths_num_intervals=8 \
+  --document_depth_percent_intervals=8
+```
+
+
+
+### 
+
 A simple 'needle in a haystack' analysis to test in-context retrieval ability of long context LLMs.
 
 Supported model providers: OpenAI, Anthropic

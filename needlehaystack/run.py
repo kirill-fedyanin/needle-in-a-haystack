@@ -61,10 +61,12 @@ def get_model_to_test(args: CommandArgs) -> ModelProvider:
     """
     match args.provider.lower():
         case "openai":
+            print("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$wft")
             return OpenAI(model_name=args.model_name)
         case "anthropic":
             return Anthropic(model_name=args.model_name)
         case "huggingface":
+            print("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&hi")
             return HuggingFace(model_name=args.model_name)
         case _:
             raise ValueError(f"Invalid provider: {args.provider}")
