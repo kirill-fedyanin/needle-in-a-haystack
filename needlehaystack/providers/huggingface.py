@@ -42,6 +42,7 @@ class HuggingFace(ModelProvider):
 
     def __init__(self,
                  model_name: str = "mistralai/Mistral-7B-Instruct-v0.2",
+                 trust_remote_code: bool = False,
                  model_kwargs: dict = DEFAULT_MODEL_KWARGS):
         """
         Initializes the HuggingFace model provider with a specific model.
@@ -69,7 +70,7 @@ class HuggingFace(ModelProvider):
             pipeline_kwargs=model_kwargs,
             device=None,
             device_map=None,
-            model_kwargs=dict(device_map='auto'),
+            model_kwargs=dict(device_map='auto', trust_remote_code=trust_remote_code),
         )
         self.tokenizer = AutoTokenizer.from_pretrained(self.model_name)
     
