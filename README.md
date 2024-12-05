@@ -54,10 +54,10 @@ source venv/bin/activate
 
 ### Install Package
 
-Install the package from PyPi:
+Install the package from github:
 
 ```zsh
-pip install needlehaystack
+pip install git+https://github.com/kirill-fedyanin/needle-in-a-haystack
 ```
 
 ### Run Test
